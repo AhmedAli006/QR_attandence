@@ -1,29 +1,28 @@
-import { View, Text } from 'react-native'
+
 import React from 'react'
-import { RNCamera } from 'react-native-camera';
-import QRCodeScanner from 'react-native-qrcode-scanner';
-import axios from 'axios';
+
+import { NavigationContainer } from '@react-navigation/native';
+
+import { createStackNavigator } from '@react-navigation/stack';
+import QrScanner from './Screens/QrScanner';
+import Home from './Screens/Home';
+
 const App = () => {
+const Stack = createStackNavigator();
 
 // https://bbsultest.000webhostapp.com/QRuri.php?qr=
-const addUser = (data)=>{
-  axios.post(`https://bbsultest.000webhostapp.com/QRuri.php?qr=${data}`)
-  .then(function (response) {
-    alert(response);
-  })
-  .catch(function (error) {
-    alert(error);
-  });
-}
+
+
   return (
    <>
-    <QRCodeScanner
-        onRead={({data})=>{addUser(data)}}
-        // flashMode={RNCamera.Constants.FlashMode.torch}
-       cameraStyle={{width: 300,height: 300,}}
-       cameraContainerStyle={{flex:1,justifyContent: 'center',alignItems: 'center',}}
-      
-      />
+ <NavigationContainer >
+   <Stack.Navigator initialRouteName='scanner' >
+      <Stack.Screen name="home" component={Home} />
+      <Stack.Screen name="scanner" component={QrScanner} />
+   
+    </Stack.Navigator>
+    
+  </NavigationContainer>
    </>
   )
 }
