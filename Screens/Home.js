@@ -14,8 +14,8 @@ const options = {
     level: 'H'
   },
   headers: {
-    'X-RapidAPI-Key': 'ca2e84728bmsh1ecb9f67b8e16eep1bd2fbjsn26fc5c3f75a4',
-    'X-RapidAPI-Host': 'qrcodeutils.p.rapidapi.com'
+    'X-RapidAPI-Key': 'KEY',
+    'X-RapidAPI-Host': 'HOST_URL'
   }
 };
 
